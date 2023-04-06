@@ -33,7 +33,7 @@ if (isset($_SESSION['user']['role']) != 1 || isset($_SESSION['user']['role']) !=
             $result = $request->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $key => $value) {
         ?>
-                <form class="bg-body-tertiary d-inline-flex row card p-2 border-2" style="width: 18rem;" method="post">
+                <form class="bg-body-tertiary d-inline-flex row card p-2 border-2" style="width: 14rem;" method="post">
                     <fieldset>
                         <p><i class="fa-solid fa-calendar-days"></i> : <?= $value['date'] ?></p>
                         <p><i class="fa-solid fa-user"></i> : <?= $value['name'] ?></p>

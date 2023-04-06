@@ -27,7 +27,7 @@ include("./inc/config.php");
             $resultaccepted = $requestaccepted->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultaccepted as $key => $value) {
         ?>
-                <div class="bg-success d-inline-flex row card p-2 border-2" style="width: 18rem;">
+                <div class="bg-success d-inline-flex row card p-2 border-2" style="width: 14rem;">
                     <fieldset>
                         <p><i class="fa-solid fa-calendar-days"></i> : <?= $value['date'] ?></p>
                         <p><i class="fa-solid fa-user"></i> : <?= $value['name'] ?></p>
@@ -41,32 +41,30 @@ include("./inc/config.php");
             header("Location: ./connexion.php");
         }
         ?>
-        <div>
-            <h2>Refusé</h2>
+        <h2>Refusé</h2>
+        <?php
+        if ($_SESSION['user']['role'] == 1 || $_SESSION['user']['role'] == 2) {
+            $requestaccepted = $bdd->prepare("SELECT * FROM demande WHERE accepted = 2 ORDER BY date DESC ");
+            $requestaccepted->execute();
+            $resultaccepted = $requestaccepted->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($resultaccepted as $key => $value) {
+        ?>
+                <div class="bg-danger d-inline-flex row card p-2 border-2" style="width: 14rem;">
+                    <fieldset>
+                        <p><i class="fa-solid fa-calendar-days"></i> : <?= $value['date'] ?></p>
+                        <p><i class="fa-solid fa-user"></i> : <?= $value['name'] ?></p>
+                        <p><i class="fa-solid fa-pen-to-square"></i> : <?= $value['ask'] ?></p>
+                    </fieldset>
+                </div>
 
-            <?php
-            if ($_SESSION['user']['role'] == 1 || $_SESSION['user']['role'] == 2) {
-                $requestaccepted = $bdd->prepare("SELECT * FROM demande WHERE accepted = 2 ORDER BY date DESC ");
-                $requestaccepted->execute();
-                $resultaccepted = $requestaccepted->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($resultaccepted as $key => $value) {
-            ?>
-                    <div class="bg-danger d-inline-flex row card p-2 border-2" style="width: 18rem;">
-                        <fieldset>
-                            <p><i class="fa-solid fa-calendar-days"></i> : <?= $value['date'] ?></p>
-                            <p><i class="fa-solid fa-user"></i> : <?= $value['name'] ?></p>
-                            <p><i class="fa-solid fa-pen-to-square"></i> : <?= $value['ask'] ?></p>
-                        </fieldset>
-                    </div>
-
-            <?php
-                }
-            } else {
-                header("Location: ./connexion.php");
+        <?php
             }
-            ?>
+        } else {
+            header("Location: ./connexion.php");
+        }
+        ?>
 
-        </div>
+    </div>
 </body>
 
 </html>
