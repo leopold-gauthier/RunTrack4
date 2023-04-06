@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require("./inc/config.php");
 ?>
 <!DOCTYPE html>
@@ -9,36 +10,43 @@ require("./inc/config.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <script src="inscription.js"></script>
+    <?php require("./inc/head-inc.php") ?>
 </head>
 
-<body>
+<body class="m-5">
     <header>
         <?php include_once("./inc/nav-inc.php") ?>
     </header>
-    <h1>Inscription</h1>
-    <form id="inscription" method="post" action="" onsubmit="return validerFormulaire()">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom">
-        <span id="erreur_nom"></span>
-        <br>
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="prenom">
-        <span id="erreur_prenom"></span>
-        <br>
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email">
-        <span id="erreur_email"></span>
-        <br>
-        <label for="mdp">Mot de passe :</label>
-        <input type="password" id="mdp" name="mdp">
-        <span id="erreur_mdp"></span>
-        <br>
-        <label for="mdp_confirm">Confirmez le mot de passe :</label>
-        <input type="password" id="mdp_confirm" name="mdp_confirm">
-        <span id="erreur_mdp_confirm"></span>
-        <br>
-        <input name="submit" type="submit" value="S'inscrire">
+    <h1 class="mt-3 mb-3">Inscription</h1>
+    <form class="row needs-validation m-5" id="inscription" method="post" action="" onsubmit="return validerFormulaire()">
+        <div>
+            <label class="form-label" for="nom">Nom :</label>
+            <input class="form-control" type="text" id="nom" name="nom">
+            <span id="erreur_nom"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="prenom">Prénom :</label>
+            <input class="form-control" type="text" id="prenom" name="prenom">
+            <span id="erreur_prenom"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email :</label>
+            <input placeholder="name@example.com" class="form-control" type="email" id="email" name="email">
+            <span id="erreur_email"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mdp">Mot de passe :</label>
+            <input class="form-control" type="password" id="mdp" name="mdp">
+            <span id="erreur_mdp"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mdp_confirm">Confirmez le mot de passe :</label>
+            <input class="form-control" type="password" id="mdp_confirm" name="mdp_confirm">
+            <span id="erreur_mdp_confirm"></span>
+        </div>
+        <div>
+            <input name="submit" type="submit" value="S'inscrire">
+        </div>
     </form>
 </body>
 
@@ -110,12 +118,12 @@ if (isset($_POST['submit'])) {
     if ($domain !== $allowed_domain) {
         // Afficher un message d'erreur et empêcher l'utilisateur de créer un compte
         header("Location: ./inscription.php");
-        exit;
+        ob_end_flush();
     } else {
         $insertUser = $bdd->prepare("INSERT INTO utilisateur(nom,prenom,email,password)VALUES(?,?,?,?)");
         $insertUser->execute([$nom, $prenom, $email, $mdp]);
         header("Location: ./connexion.php");
-        exit;
+        ob_end_flush();
     }
 }
 

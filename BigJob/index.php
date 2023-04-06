@@ -12,10 +12,11 @@ if (!isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <?php require("./inc/head-inc.php") ?>
+    <title>Présence</title>
 </head>
 
-<body>
+<body class="m-5">
     <header>
         <?php include_once("./inc/nav-inc.php") ?>
     </header>
@@ -36,27 +37,33 @@ if (!isset($_SESSION['user'])) {
     }
     if (isset($_SESSION['user'])) {
     ?>
-        <h1>Calendrier</h1>
+        <h1 class="mt-3 mb-3">Calendrier</h1>
         <p>Bienvenue <?php echo $_SESSION['user']['nom']; ?> !</p>
         <p>Veuillez choisir une date :</p>
-        <form method="post">
-            <input type="datetime-local" name="date">
-            <p>Veuillez saisir un message :</p>
-            <textarea name="message"></textarea>
-            <br><br>
-            <input type="submit" name="submit" value="Envoyer la demande">
-            <?php
-            if (isset($error)) : ?>
-                <p style="color: red;"><?php echo $error; ?></p>
-            <?php endif; ?>
-            <?php if (isset($success)) : ?>
-                <p style="color: green;"><?php echo $success; ?></p>
-            <?php endif; ?>
+        <form class="row needs-validation m-5" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="date">Choissisez votre date :</label>
+                <input class="form-control" id="date" type="datetime-local" name="date">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="textarea">Veuillez saisir un message :</label>
+                <textarea class="form-control" id="textarea" name="message"></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="submit" name="submit" value="Envoyer la demande">
+            </div>
+            <div>
+                <?php
+                if (isset($error)) : ?>
+                    <p style="color: red;"><?php echo $error; ?></p>
+                <?php endif; ?>
+                <?php if (isset($success)) : ?>
+                    <p style="color: green;"><?php echo $success; ?></p>
+                <?php endif; ?>
+            </div>
         </form>
     <?php
     }
-    var_dump($_SESSION);
-
     ?>
 </body>
 

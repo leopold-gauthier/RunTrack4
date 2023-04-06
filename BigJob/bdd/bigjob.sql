@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 06 avr. 2023 à 11:51
+-- Généré le : jeu. 06 avr. 2023 à 15:47
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `utilisateurs`
+-- Base de données : `bigjob`
 --
 
 -- --------------------------------------------------------
@@ -35,14 +35,27 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `accepted` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `demande`
 --
 
 INSERT INTO `demande` (`id`, `date`, `ask`, `name`, `accepted`) VALUES
-(29, '2023-04-08 13:06:00', 'kk', 'mama', 2);
+(37, '2023-04-22 17:41:00', 'dadjkazdddddddddzaajdakjdazjkdakljdalkjdazjkdkajzdjkazdlkjazlkjddjkazjkdazjdalkjdlkjazdlkjazdjlkazldjkazlkjdelkjdzlkdlkjazkjl', 'red', 2),
+(36, '2023-04-06 17:19:00', 'je suis présent', 'mama', 2),
+(35, '2222-01-01 00:01:00', '2222', 'mama', 1),
+(34, '2023-04-06 15:42:00', 'dakdzkdakdazlkdlkdlklzkdlkzlkdkazkdldzdlkazkldlkdlkazdlkazklzd', 'mama', 2),
+(33, '2023-04-06 15:43:00', 'jdoaijdzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzjdakdazkdkzd toz', 'mama', 1),
+(31, '2023-04-07 15:36:00', 'Je suis actullement la', 'mama', 1),
+(32, '2023-04-06 15:40:00', 'pas en retard', 'mama', 2),
+(29, '2023-04-08 13:06:00', 'kk', 'mama', 2),
+(30, '2023-04-07 14:55:00', 'ff', 'mama', 2),
+(38, '2023-04-09 17:41:00', 'ijoadjadlkjazdlkjazdlkjazdlkjazkdjazkdjazdjkazlkjdzlkjdazlkjdazjkldazkjldazlkjd', 'red', 2),
+(39, '2023-04-06 17:45:00', 'j\'adore le systeme', 'red', 1),
+(40, '2023-04-16 17:43:00', 'je suis al', 'red', 1),
+(41, '2023-04-06 17:46:00', 'abesent', 'red', 2),
+(42, '2023-04-06 17:46:00', 'tjr présent', 'red', 2);
 
 -- --------------------------------------------------------
 
@@ -59,20 +72,16 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `role` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `password`, `role`) VALUES
-(1, 'DropZ', 'Rolls', 'dropzrolls@gmail.com', '', 2),
-(2, 'Rolls', 'DropZ', 'dropzrolls@gmail.com', '', 0),
-(5, 'hh', 'hh', 'hh@gmail.com', 'hh', 0),
-(6, 'dd', 'dd', 'leo@aa.com', 'dd', 0),
-(7, 'dd', 'dd', 'leo@aa.com', 'dd', 0),
-(8, 'dd', 'dd', 'leo@aa.com', 'dd', 0),
-(10, 'mama', 'mama', 'mama@laplateforme.io', 'mama', 2);
+(15, 'red', 'red', 'red@laplateforme.io', 'red', 1),
+(10, 'mama', 'mama', 'mama@laplateforme.io', 'mama', 0),
+(13, 'admin', 'admin', 'admin@laplateforme.io', 'ad', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

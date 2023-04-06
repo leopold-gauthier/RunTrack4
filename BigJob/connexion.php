@@ -1,5 +1,5 @@
 <?php
-require("./inc/config.php");
+include_once("./inc/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,24 +10,31 @@ require("./inc/config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <script src="inscription.js"></script>
+    <?php require("./inc/head-inc.php") ?>
 </head>
 
-<body>
+<body class="m-5">
     <header>
         <?php include_once("./inc/nav-inc.php") ?>
     </header>
-    <h1>Connexion</h1>
-    <form id="connexion" method="post" action="" onsubmit="return validerFormulaire()">
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email">
-        <span id="erreur_email"></span>
+    <h1 class="mt-3 mb-3">Connexion</h1>
+    <form class="row g-3 needs-validation m-5" id="connexion" method="post" action="" onsubmit="return validerFormulaire()">
+        <div>
+            <label class="form-label" for="email">Email :</label>
+            <input placeholder="name@example.com" class="form-control" type="email" id="email" name="email">
+            <span id="erreur_email"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mdp">Mot de passe :</label>
+            <input class="form-control" type="password" id="mdp" name="mdp">
+            <span class="form-label" id="erreur_mdp"></span>
+        </div>
         <br>
-        <label for="mdp">Mot de passe :</label>
-        <input type="password" id="mdp" name="mdp">
-        <span id="erreur_mdp"></span>
-        <br>
-        <input name="submit" type="submit" value="Se connecter">
+        <div class="mb-3">
+            <input name="submit" type="submit" value="Se connecter">
+        </div>
     </form>
+
 </body>
 <?php
 if (isset($_POST['submit'])) {
@@ -56,7 +63,6 @@ if (isset($_POST['submit'])) {
 <?php
     }
 }
-var_dump($_SESSION)
 ?>
 
 </html>
