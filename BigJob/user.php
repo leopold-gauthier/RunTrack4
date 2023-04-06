@@ -10,7 +10,7 @@ include("./inc/config.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include_once("./inc/head-inc.php") ?>
-    <title>Document</title>
+    <title>Utilisateurs</title>
 </head>
 
 <body class="m-5">
@@ -25,9 +25,7 @@ include("./inc/config.php");
             $request->execute();
             $result = $request->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $key => $value) {
-
         ?>
-
                 <form class="bg-body-tertiary d-inline-flex row card p-2 border-2" method="POST">
                     <fieldset>
                         <p><i class="fa-solid fa-user"></i> : <?= $value['nom'] ?> / <?= $value['prenom'] ?></p>

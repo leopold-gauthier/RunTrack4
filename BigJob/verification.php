@@ -38,8 +38,8 @@ if (isset($_SESSION['user']['role']) != 1 || isset($_SESSION['user']['role']) !=
                         <p><i class="fa-solid fa-calendar-days"></i> : <?= $value['date'] ?></p>
                         <p><i class="fa-solid fa-user"></i> : <?= $value['name'] ?></p>
                         <p><i class="fa-solid fa-pen-to-square"></i> : <?= $value['ask'] ?></p>
-                        <input type="submit" id="<?= $value['id'] ?>" value="Accept" name="ask_accept<?= $value['id'] ?>">
-                        <input type="submit" id="<?= $value['id'] ?>" value="Decline" name="ask_decline<?= $value['id'] ?>">
+                        <input class="bg-success border-0" type="submit" id="<?= $value['id'] ?>" value="Accept" name="ask_accept<?= $value['id'] ?>">
+                        <input class="bg-danger border-0" type="submit" id="<?= $value['id'] ?>" value="Decline" name="ask_decline<?= $value['id'] ?>">
                     </fieldset>
                 </form>
 

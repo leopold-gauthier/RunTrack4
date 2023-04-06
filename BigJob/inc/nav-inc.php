@@ -20,6 +20,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./user.php">Utilisateurs</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./historique.php">Historique de présence</a>
+                        </li>
                     <?php
                     } else {
                     }
