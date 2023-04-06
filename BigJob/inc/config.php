@@ -6,7 +6,7 @@ $username = 'root';
 $password = '';
 
 try {
-    $bdd = new PDO("mysql:host=$servername;dbname=utilisateurs", $username, $password);
+    $bdd = new PDO("mysql:host=$servername;dbname=bigjob", $username, $password);
 
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo 'Connexion réussie';
