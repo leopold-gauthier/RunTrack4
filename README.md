@@ -5,5 +5,6 @@ In this project we have two role one modo and one admin.
 
 if u want to try ->
 
-Modo -> email = red@laplateforme.io / password = red 
+Modo -> email = red@laplateforme.io / password = red
+
 Admin -> email = admin@laplateforme.io / password = ad 
