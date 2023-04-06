@@ -9,9 +9,6 @@
                 <?php
                 if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="./deconnexion.php">Exit</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="./index.php">Présence</a>
                     </li>
                     <?php
@@ -26,8 +23,13 @@
                     <?php
                     } else {
                     }
-                } else {
                     ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./deconnexion.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </li>
+                <?php
+                } else {
+                ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./inscription.php">Inscription</a>
                     </li>

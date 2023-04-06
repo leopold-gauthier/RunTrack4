@@ -22,17 +22,17 @@ include_once("./inc/config.php");
         <div>
             <label class="form-label" for="email">Email :</label>
             <input placeholder="name@example.com" class="form-control" type="email" id="email" name="email">
-            <span id="erreur_email"></span>
         </div>
         <div class="mb-3">
             <label class="form-label" for="mdp">Mot de passe :</label>
             <input class="form-control" type="password" id="mdp" name="mdp">
-            <span class="form-label" id="erreur_mdp"></span>
         </div>
         <br>
         <div class="mb-3">
             <input name="submit" type="submit" value="Se connecter">
         </div>
+        <span class="form-label" id="erreur"></span>
+
     </form>
 
 </body>
@@ -51,14 +51,14 @@ if (isset($_POST['submit'])) {
         } else {
 ?>
             <script>
-                document.getElementById("erreur_email").textContent = "Veuillez entrer une adresse email ou un mot de passe valide.";
+                document.getElementById("erreur").textContent = "Veuillez entrer une adresse email ou un mot de passe valide.";
             </script>
         <?php
         }
     } else {
         ?>
         <script>
-            document.getElementById("erreur_email").textContent = "Veuillez entrer une adresse email ou un mot de passe valide.";
+            document.getElementById("erreur").textContent = "Veuillez entrer une adresse email ou un mot de passe valide.";
         </script>
 <?php
     }
