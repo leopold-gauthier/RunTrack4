@@ -21,7 +21,7 @@ include("./inc/config.php");
     <div class="m-5">
         <?php
         if (isset($_SESSION['user']['role']) == 1 || isset($_SESSION['user']['role']) == 2) {
-            $request = $bdd->prepare("SELECT * FROM utilisateur ");
+            $request = $bdd->prepare("SELECT * FROM utilisateur ORDER BY role DESC");
             $request->execute();
             $result = $request->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $key => $value) {

@@ -18,7 +18,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./user.php">Users</a>
+                            <a class="nav-link" href="./user.php">Utilisateurs</a>
                         </li>
                     <?php
                     } else {
